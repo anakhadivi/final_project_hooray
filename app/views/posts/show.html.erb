@@ -1,0 +1,36 @@
+<div id='posts_show_links'>
+	<nav>
+			<ul>
+				<li>
+					<%=link_to 'My Account', user_path(current_user)%>
+				</li>
+				<li>
+					<%=link_to 'View BladerSpots', posts_path%>
+				</li>
+				<li>
+					<%=link_to 'Create New Spot', new_post_path%>
+				</li>
+				<li>
+					<%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+				</li>
+			</ul>
+		</nav>
+</div>
+<h1 id='h1_show'>
+	Post: <%=@post.location%>
+</h1>
+<div id='single_post'>
+<%=@post.location%>
+<br>
+<%=@post.notes%>
+<br>
+<%=image_tag @post.image.url%>
+<br>
+<%=@post.comments%>
+<br>
+
+<%=link_to 'Comment', new_post_comment_path(@post)%>
+<br>
+<%=link_to 'View All Comments', post_comments_path(@post)%>
+<br>
+</div>

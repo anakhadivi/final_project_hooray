@@ -1,0 +1,39 @@
+<div id='user_info'>
+	<div id='welcome'>
+		<h1>
+			<%= 'Welcome ' + @user.fname%>!
+		</h1>
+	</div>
+	<div id='users_show_links'>
+		<nav>
+			<ul>
+				<li>
+					<%=link_to 'Edit My Account', edit_user_path(current_user)%>
+				</li>
+				<li>
+					<%=link_to 'View BladerSpots', posts_path%>
+				</li>
+				<li>
+					<%=link_to 'Create New Spot', new_post_path%>
+				</li>
+				<li>
+					<%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div id='user_spots'>
+	<h2>Your Spots</h2>
+	<%=@user.posts.each do |post|%>
+		<b>Location</b><br>
+		<%=post.location%>
+		<br>
+		<%=post.notes%>
+		<br>
+		<%=image_tag post.image.url%>
+		<br>
+		<%=link_to 'Delete Spot', post_path, method: :delete%>
+	<%end%>
+</div>
+

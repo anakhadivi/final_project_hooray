@@ -1,0 +1,68 @@
+body{
+	background-color: #132D40;
+	max-width: 1260px;
+	color:#84AAC6;
+}
+header{
+	max-width: 960px;
+	height:100px;
+	outline: 1px solid red;
+	margin-left: auto;
+	margin-right: auto;
+}
+footer{
+	text-align: center;
+	outline: 1px solid purple;
+	height:50px;
+}
+h1{
+	color:#84AAC6;
+	outline: 1px solid green;
+	max-width: 300px;
+}
+#search{
+	outline: 1px solid blue;
+	max-width: 200px;
+}
+a:visited, a:hover, a:active{
+	color:#9EB5C6;
+}
+a{
+	text-decoration: none;
+}
+#posts_index_links{
+	outline: 1px solid purple;
+	max-width: 200px;
+	float: right;
+}
+#post_index_posts{
+	outline:1px solid yellow;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#single_post_index{
+	border-radius: 5px;
+	border-style: dotted;
+}
+/*show
+*/
+#single_post{
+	outline:solid 1px red;
+	max-width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#h1_show{
+	margin-left: auto;
+	margin-right: auto;
+
+}
+#posts_show_links{
+	outline: 1px blue solid;
+	max-width: 200px;
+	float:right;
+}
+#posts_show_links ul{
+	list-style-type: none;
+}

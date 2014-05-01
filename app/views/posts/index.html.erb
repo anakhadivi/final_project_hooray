@@ -1,0 +1,26 @@
+<div id='posts_index_links'>
+	<%=link_to 'Upload New Spot',new_post_path%><br>
+	<%=link_to 'My Account', user_path(current_user)%><br>
+	<%=link_to 'Log Out',destroy_user_session_path, method: :delete%>
+</div>
+<h1>BladerSpots</h1>
+<div id='search'>
+Search posts!<%= form_tag posts_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+</div>
+<div id='post_index_posts'>
+	<%=@posts.each do |post|%>
+	<div id='single_post_index'>
+		<%=post.location%>
+		<br>
+		<%=image_tag post.image.url%>
+		<br>
+		<%=link_to 'View Spot', post_path(post)%>
+	</div>
+<%end%>
+</div>
+<%= paginate @posts %>
+

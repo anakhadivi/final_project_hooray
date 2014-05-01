@@ -1,0 +1,13 @@
+<h1>Create a new post</h1>
+<div id='new_post_form'>
+	<%=simple_form_for @post do |f|%>
+		<%=f.input :location%>
+		<%=f.input :notes%>
+		<%=f.input :image%>
+		<%=f.button :submit%>
+	<%end%>
+</div>
+<div id='posts_new_links'>
+	<%=link_to 'View BladerSpots', posts_path%><br>
+	<%=link_to 'My Account', user_path(current_user)%>
+</div>
