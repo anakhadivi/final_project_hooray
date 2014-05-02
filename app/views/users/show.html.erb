@@ -25,13 +25,13 @@
 </div>
 <div id='user_spots'>
 	<h2>Your Spots</h2>
-	<%=@user.posts.each do |post|%>
+	<%@user.posts.each do |post|%>
 		<b>Location</b><br>
 		<%=post.location%>
 		<br>
 		<%=post.notes%>
 		<br>
-		<%=image_tag post.image.url%>
+		<%=image_tag post.image.url, size: '300'%>
 		<br>
 		<%=link_to 'Delete Spot', post_path, method: :delete%>
 	<%end%>

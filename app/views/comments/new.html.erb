@@ -1,5 +1,13 @@
+<div id='comments_image'>
+	<%=image_tag @post.image.url%>
+	<%=@comments.each do |comment|%>
+	<%=comment.comment%><br>
+	<%end%>
+</div>
+<div id = 'new_comment_form'
 <%=simple_form_for [@post, @comment] do |f|%>
 	<%=f.input :comment%>
 	<%=f.button :submit%>
 
 <%end%>
+</div>

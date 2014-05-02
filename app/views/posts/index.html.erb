@@ -12,15 +12,24 @@ Search posts!<%= form_tag posts_path, :method => 'get' do %>
 
 </div>
 <div id='post_index_posts'>
-	<%=@posts.each do |post|%>
+	<%@posts.each do |post|%>
 	<div id='single_post_index'>
 		<%=post.location%>
 		<br>
-		<%=image_tag post.image.url%>
+		<%=image_tag post.image.url, size: '300x300' %>
+		<br>
+		<i><%=post.user.fname%></i>
 		<br>
 		<%=link_to 'View Spot', post_path(post)%>
 	</div>
 <%end%>
+
+	<%=paginate @posts %>
 </div>
-<%= paginate @posts %>
+<div id="tag_cloud">
+  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 

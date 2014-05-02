@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 	layout 'spots'
 	def index
-		@posts = Post.page(params[:page])
+		if params[:tag]
+			@posts = Post.page(params[:page]).tagged_with(params[:tag])
+		else
+			@posts = Post.page(params[:page])
+		end
 	end
 	def show
 		@post = Post.find(params[:id])		
@@ -10,7 +14,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 	def create
-		@post = Post.new
+		@post = Post.new(post_params)
 		@post.user = current_user
 		if @post && @post.save
 			flash[:notice] = 'Your post has been saved'
@@ -18,7 +22,7 @@ class PostsController < ApplicationController
 			flash[:alert] = 'There was a problem saving your post :('
 			
 		end
-		redirect_to post_path(@post)
+		redirect_to posts_path
 	end
 	def delete
 		@post = Post.find(params[:id])
@@ -32,5 +36,9 @@ class PostsController < ApplicationController
 		end
 		redirect_to user_path(current_user)
 	end
-
+	private
+	def post_params
+		params.require(:post).permit(:location, :notes, :image, :taglist)
+	end
 end
+
