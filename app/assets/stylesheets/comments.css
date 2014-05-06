@@ -1,0 +1,29 @@
+#all_comments{
+outline: solid 1px blue;
+text-align: center;
+}
+#comments_image{
+	text-align: center;
+}
+#comments_image img{
+	text-align: center;
+}
+#new_comment_form{
+	outline: 1px solid yellow;
+	text-align: center;
+}
+#comments_new_links{
+	outline: 1px solid green;
+	max-width: 200px;
+	float:right;
+	right:100px;
+}
+#comments_new_links ul{
+	list-style-type: none;
+}
+#single_comment{
+	outline: 1px solid purple;
+}
+#show_comments{
+	
+}

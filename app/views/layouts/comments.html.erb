@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  	Final
+  </title>
+  <%= stylesheet_link_tag    "comments", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+		<%=image_tag 'banner.png'%>
+	</header>
+		
+<div class="notice">
+	<%= notice %>
+</div>
+<div class="alert">
+	<%= alert %>
+</div>
+
+<%= yield %>
+<footer>
+BladerSpot
+</footer>
+</body>
+</html>

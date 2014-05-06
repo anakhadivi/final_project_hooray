@@ -1,35 +1,18 @@
 <div id='posts_index_links'>
-	<%=link_to 'Upload New Spot',new_post_path%><br>
-	<%=link_to 'My Account', user_path(current_user)%><br>
+	<%=link_to 'My Posts', user_path(current_user)%><br>
 	<%=link_to 'Log Out',destroy_user_session_path, method: :delete%>
 </div>
-<h1>BladerSpots</h1>
-<div id='search'>
-Search posts!<%= form_tag posts_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
+<div id='upload'>
+	<b><%=link_to 'Upload New Spot',new_post_path%></b><br>
 </div>
+
 <div id='post_index_posts'>
-	<%@posts.each do |post|%>
-	<div id='single_post_index'>
-		<%=post.location%>
-		<br>
-		<%=image_tag post.image.url, size: '300x300' %>
-		<br>
-		<i><%=post.user.fname%></i>
-		<br>
-		<%=link_to 'View Spot', post_path(post)%>
-	</div>
+	<%@posts.reverse_each do |post|%>
+<%=link_to post_path(post) do %>
+<%=image_tag post.image.url, size: '100x100'%>
 <%end%>
-
-	<%=paginate @posts %>
-</div>
-<div id="tag_cloud">
-  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
+<%end%>
+<br>
 </div>
 
 

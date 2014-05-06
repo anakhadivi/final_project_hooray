@@ -17,20 +17,27 @@
 		</nav>
 </div>
 <h1 id='h1_show'>
-	Post: <%=@post.location%>
+<%=@post.location%>
 </h1>
 <div id='single_post'>
-<%=@post.location%>
+Notes: <%=@post.notes%>
 <br>
-<%=@post.notes%>
+<%=@post.best_at%>
+<%=image_tag @post.image.url, size: '400x400'%>
 <br>
-<%=image_tag @post.image.url%>
+Spotted By: <%=@post.user.email%>
 <br>
-<%=@post.comments%>
-<br>
-
-<%=link_to 'Comment', new_post_comment_path(@post)%>
-<br>
-<%=link_to 'View All Comments', post_comments_path(@post)%>
+</div>
+<div id='show_comments'>
+<%@comments.each do |comment|%>
+	<div id='single_comment'>
+		<i><%=comment.user.email%></i>: <%=comment.review%>
+	<br>
+</div>
+<%end%><br>
+<div id='comment_link'>
+	<%=link_to 'Comment', new_post_comment_path(@post)%>
+</div>
+</div>
 <br>
 </div>

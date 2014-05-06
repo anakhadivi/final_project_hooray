@@ -1,9 +1,9 @@
 <%=image_tag @post.image.url%><br>
 
 <div id='single_comment'%>
-	<%=@comments.each do |comment|%>
-	<%=comment.comment%><br>
-	<i><%=comment.user.fname%></i>
+	<%@comments.each do |comment|%>
+	<%=comment.review%><br>
+	<i><%=comment.user.email%></i>
 </div>
 	<br>
 <%end%>

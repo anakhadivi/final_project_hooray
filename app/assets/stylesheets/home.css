@@ -1,11 +1,21 @@
 body{
-	background-image: url('sign_up_image.png');
+	background-color: white;
+}
+#account_already{
+	text-align: right;
 }
 #sign_up_image{
+
 	width: 500px;
 	height:264px;
 	margin-right: auto;
 	margin-left: auto;
 }
-#home_links{
+#yes_or_no{
+	text-align: center;
+}
+#yes_or_no button{
+	border-radius: 6px;
+	background-color: yellow;
+	color: blue;
 }

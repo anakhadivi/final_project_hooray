@@ -3,7 +3,7 @@
 	<%=simple_form_for @post do |f|%>
 		<%=f.input :location%>
 		<%=f.input :notes%>
-		<%=f.input :tag_list%>
+		<%=f.input :best_at, :label => 'Best time of Day'%>
 		<%=f.input :image%>
 		<%=f.button :submit%>
 	<%end%>

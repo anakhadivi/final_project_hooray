@@ -1,11 +1,15 @@
 Final::Application.routes.draw do
-  root to: "home#index"
+  root to: "home#index", as: :home
   devise_for :users
   resources :users
   resources :posts do
-      resources :comments
-  end
-  get 'tags/:tag', to: 'post#index', as: :tag
+    resources :ratings
+    end
+      resources :posts do
+        resources :comments
+      end
+    
+  get 'tags/:tag', to: 'posts#index', as: :tag
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

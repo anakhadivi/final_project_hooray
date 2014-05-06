@@ -1,7 +1,7 @@
 <div id='user_info'>
 	<div id='welcome'>
 		<h1>
-			<%= 'Welcome ' + @user.fname%>!
+			Welcome Blader!
 		</h1>
 	</div>
 	<div id='users_show_links'>
@@ -17,7 +17,7 @@
 					<%=link_to 'Create New Spot', new_post_path%>
 				</li>
 				<li>
-					<%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+					<%=link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 				</li>
 			</ul>
 		</nav>
@@ -26,14 +26,13 @@
 <div id='user_spots'>
 	<h2>Your Spots</h2>
 	<%@user.posts.each do |post|%>
-		<b>Location</b><br>
+		<b>Location:</b>
+		<br>
 		<%=post.location%>
 		<br>
-		<%=post.notes%>
+		<%=link_to 'View Post', post_path(post)%>
 		<br>
-		<%=image_tag post.image.url, size: '300'%>
 		<br>
-		<%=link_to 'Delete Spot', post_path, method: :delete%>
 	<%end%>
 </div>
 

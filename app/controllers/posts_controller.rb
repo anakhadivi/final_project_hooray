@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
 	layout 'spots'
 	def index
-		if params[:tag]
-			@posts = Post.page(params[:page]).tagged_with(params[:tag])
-		else
-			@posts = Post.page(params[:page])
-		end
+		@posts = Post.all
 	end
+
 	def show
 		@post = Post.find(params[:id])		
+		@comments = Post.find(params[:id]).comments
 	end
 	def new 
 		@post = Post.new
@@ -24,21 +22,9 @@ class PostsController < ApplicationController
 		end
 		redirect_to posts_path
 	end
-	def delete
-		@post = Post.find(params[:id])
-	end
-	def destroy
-		@post = Post.find(params[:id])
-		if @post && @post.destroy
-			flash[:notice] = 'Spot has been deleted'
-		else
-			flash[:alert] = 'There was a problem deleting your spot'
-		end
-		redirect_to user_path(current_user)
-	end
 	private
 	def post_params
-		params.require(:post).permit(:location, :notes, :image, :taglist)
+		params.require(:post).permit(:location, :notes, :image)
 	end
 end
 

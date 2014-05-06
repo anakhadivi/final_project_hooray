@@ -1,12 +1,21 @@
-<div id='home_links'>
-	<div id = 'sign_in'>
-		<%=link_to 'Sign In', new_user_session_path%>
-	</div>
-	<div id ='sign_up'>
-		Find your new spot !
-		<%=link_to 'Sign Up',  new_user_registration_path%>
-	</div>
+<div id='account_already'>
+	Have an account already? <%=link_to 'Sign In', new_user_session_path%>
 </div>
 <div id='sign_up_image'>
 	<%=image_tag 'sign_up.png'%>
+</div>
+<div id='yes_or_no'>
+	<button id='yes'>
+		<a href="/users/sign_up">
+			Yes
+		</a>
+	</button>
+	<button id='no'>
+		<a href="/users/sign_up">
+			No
+		</a>
+	</button>
+	<p>
+		Either way, create an account !
+	</p>
 </div>

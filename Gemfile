@@ -44,7 +44,6 @@ gem 'devise'
 gem "paperclip", "~> 4.1"
 gem 'simple_form'
 gem 'country_select'
-gem 'kaminari'
 gem 'acts_as_votable', '~> 0.9.0'
 gem 'acts_as_taggable_on'
 
